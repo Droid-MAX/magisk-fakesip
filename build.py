@@ -86,7 +86,7 @@ interface="wlan0"
 #mark=""
 # set the mask for fwmark (default: 0)
 #mask=""
-# netfilter queue number (default: 512)
+# netfilter queue number (default: 513)
 #number=""
 # duplicate generated packets for <repeat> times (default: 2)
 #repeat=""
