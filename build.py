@@ -82,7 +82,7 @@ def create_module_conf(path: Path):
 interface="wlan0"
 # sip uri for obfuscation
 #uri=""
-# fwmark for bypassing the queue (default: 0x8000)
+# fwmark for bypassing the queue (default: 0x10000)
 #mark=""
 # set the mask for fwmark (default: 0)
 #mask=""
