@@ -44,6 +44,8 @@ set -- -d -z
 [ -n "${silent+x}" ] && [ "$silent" -eq 1 ] && set -- "$@" "-s"
 [ -n "${ttl+x}" ] && set -- "$@" "-t" "$ttl"
 [ -n "${pct+x}" ] && set -- "$@" "-y" "$pct"
+[ -n "${white+x}" ] && set -- "$@" "-p" "$white"
+[ -n "${black+x}" ] && set -- "$@" "-P" "$black"
 
 $MODPATH/bin/fakesip "$@"
 

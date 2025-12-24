@@ -19,7 +19,7 @@ def get_last_github_tag(project_name) -> str:
 
 # gets last tag of fakesip
 def get_last_fakesip_tag() -> str:
-    last_fakesip_tag = get_last_github_tag('MikeWang000000/FakeSIP')
+    last_fakesip_tag = get_last_github_tag('Droid-MAX/FakeSIP')
     print(f"Last fakesip tag: {last_fakesip_tag}")
     return last_fakesip_tag
 

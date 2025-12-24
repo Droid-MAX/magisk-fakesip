@@ -46,4 +46,4 @@ jobs:
         with:
           artifacts: build/*.zip,build/updater.json
           tag: "${{ env.NEW_TAG }}"
-          body: https://github.com/MikeWang000000/FakeSIP/releases
+          body: https://github.com/Droid-MAX/FakeSIP/releases

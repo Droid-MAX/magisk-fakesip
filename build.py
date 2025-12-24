@@ -99,7 +99,11 @@ silent="1"
 # TTL for generated packets (default: 3)
 #ttl=""
 # raise TTL dynamically to <pct>% of estimated hops (default: 0)
-#pct=""'''
+#pct=""
+# whitelist ports (eg: 53,80-1000)
+#white=""
+# blacklist ports (eg: 51820,51413)
+#black=""'''
 
     with open(path.joinpath("fakesip.conf"), "w", newline="\n") as f:
         f.write(module_conf)
@@ -120,7 +124,7 @@ def fill_module(arch: str, fakesip_tag: str, project_tag: str):
     logger.info(f"Filling module for arch '{arch}'")
 
     fakesip_download_url = (
-        f"https://github.com/MikeWang000000/FakeSIP/releases/download/{fakesip_tag}/"
+        f"https://github.com/Droid-MAX/FakeSIP/releases/download/{fakesip_tag}/"
     )
     fakesip_pkg = f"fakesip-linux-{arch}.tar.gz"
     fakesip_pkg_path = PATH_DOWNLOADS.joinpath(fakesip_pkg)
