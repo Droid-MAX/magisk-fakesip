@@ -39,13 +39,31 @@ load_config
 
 set -- -d -z
 
-[ -n "${interface+x}" ] && { [ "$interface" == "all" ] && set -- "$@" "-a" || set -- "$@" "-i" "$interface"; }
+if [ -n "${interface+x}" ]; then
+    if [ "$interface" == "all" ]; then
+        set -- "$@" "-a"
+    else
+        OLD_IFS="$IFS"; IFS=","
+        for item in $interface; do
+            set -- "$@" "-i" "$item"
+        done
+        IFS="$OLD_IFS"
+    fi
+fi
+
+if [ -n "${payload+x}" ]; then
+    OLD_IFS="$IFS"; IFS=","
+    for item in $payload; do
+        set -- "$@" "-b" "$item"
+    done
+    IFS="$OLD_IFS"
+fi
+
 [ -n "${uri+x}" ] && set -- "$@" "-u" "$uri"
 [ -n "${mark+x}" ] && set -- "$@" "-m" "$mark"
 [ -n "${mask+x}" ] && set -- "$@" "-x" "$mask"
 [ -n "${number+x}" ] && set -- "$@" "-n" "$number"
 [ -n "${repeat+x}" ] && set -- "$@" "-r" "$repeat"
-[ -n "${payload+x}" ] && set -- "$@" "-b" "$payload"
 [ -n "${logfile+x}" ] && set -- "$@" "-w" "$logfile"
 [ -n "${silent+x}" ] && [ "$silent" -eq 1 ] && set -- "$@" "-s"
 [ -n "${ttl+x}" ] && set -- "$@" "-t" "$ttl"
